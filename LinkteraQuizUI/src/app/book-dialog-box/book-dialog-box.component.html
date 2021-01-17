@@ -1,0 +1,26 @@
+<!-- book-history-dialog-box.component.html -->
+<h1 mat-dialog-title> <strong>{{action}}</strong></h1>
+<div mat-dialog-content *ngIf="action == 'Delete'">
+    Sure to delete <b>{{local_data.title}} - {{local_data.author}}</b>?
+</div>
+
+<div mat-dialog-content *ngIf="action == 'Rent'">
+    Sure to rent <b>{{local_data.title}} - {{local_data.author}}</b>?
+</div>
+
+<div mat-dialog-content *ngIf="action != 'Rent' && action != 'Delete'">
+  <mat-form-field>
+    <input placeholder="{{action}} Title" matInput [(ngModel)]="local_data.title">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="{{action}} Author" matInput [(ngModel)]="local_data.author">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="{{action}} Count" matInput [(ngModel)]="local_data.count">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

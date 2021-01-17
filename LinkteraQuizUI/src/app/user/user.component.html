@@ -1,0 +1,67 @@
+<!-- app.component.html -->
+<div class="container text-center">
+  <button style="margin-top: 15px;" mat-raised-button (click)="refresh()"> <mat-icon>cached</mat-icon> Refresh </button>
+
+  <div style="float: right;" class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="my-table mat-elevation-z8"  style="text-align: left"  matSort>
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> userId </th>
+      <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> firstname </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> lastname </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> username </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="userType">
+      <th mat-header-cell *matHeaderCellDef> userType </th>
+      <td mat-cell *matCellDef="let element"> {{element.userType}} </td>
+    </ng-container>
+
+    <!-- *ngIf="condition" -->
+    <!-- Action Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> delete </th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <button (click)="openDialog('Delete',element)">Delete</button>
+      </td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="history">
+      <th mat-header-cell *matHeaderCellDef> history </th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <button (click)="goTo(element)">History</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+
+</div>

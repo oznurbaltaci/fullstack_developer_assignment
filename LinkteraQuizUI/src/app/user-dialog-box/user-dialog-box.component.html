@@ -1,0 +1,13 @@
+<!-- book-user-user-history-dialog-box.component.html -->
+<h1 mat-dialog-title> <strong>{{action}}</strong></h1>
+
+<div mat-dialog-content *ngIf="action == 'Delete'">
+  <mat-form-field>
+    Sure to delete <b>{{local_data.firstName}} - {{local_data.lastName}}</b>?
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

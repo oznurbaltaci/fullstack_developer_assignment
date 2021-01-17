@@ -1,0 +1,20 @@
+<mat-nav-list *ngIf="isEquals(0)">
+  <a mat-list-item routerLink="/users" (click)="onToggleSidenav()">
+    <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Users</span>
+  </a>
+  <a mat-list-item routerLink="/books" (click)="onToggleSidenav()">
+    <mat-icon>book</mat-icon> <span class="nav-caption">Books</span>
+  </a>
+  <a mat-list-item routerLink="/history" (click)="onToggleSidenav()">
+    <mat-icon>account_balance</mat-icon><span class="nav-caption">History</span>
+  </a>
+</mat-nav-list>
+<mat-nav-list *ngIf="isEquals(1)">
+  <a mat-list-item routerLink="/user-history" (click)="onToggleSidenav()">
+    <mat-icon>account_balance</mat-icon> <span class="nav-caption">History</span>
+  </a>
+  <a mat-list-item routerLink="/books" (click)="onToggleSidenav()">
+    <mat-icon>book</mat-icon> <span class="nav-caption">Books</span>
+  </a>
+</mat-nav-list>
+

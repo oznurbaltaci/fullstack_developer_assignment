@@ -15,4 +15,5 @@ public interface BaseService<T> {
 
     void delete(UUID uuid);
 
+
 }
